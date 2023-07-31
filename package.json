@@ -1,0 +1,18 @@
+{
+    "name": "vr-bone-morph",
+    "version": "0.0.1",
+    "description": "A package to handle custom bone morph and displacement for VR avatars",
+    "displayName": "Bone Morph VR",
+    "unity": "2022.3",
+    "author": {
+        "name": "Davide Mongera"
+    },
+    "keywords": [
+        "VR",
+        "Virtual Reality",
+        "Avatar",
+        "Bones",
+        "Distortion",
+        "Morph"
+    ]
+}
