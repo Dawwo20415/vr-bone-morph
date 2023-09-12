@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.LowLevel;
 
 public class Displacer : MonoBehaviour
 {
@@ -25,10 +26,13 @@ public class Displacer : MonoBehaviour
     void Update()
     {
         Vector3 displacement = Vector3.zero;
-        foreach(PointDisplacement op in operations) {
+        Quaternion angular_displacement = Quaternion.identity;
+        foreach (PointDisplacement op in operations) {
             displacement += op.getDisplacement(own_transform.position);
+            angular_displacement *= op.getAngularDisplacement(own_transform.rotation);
         }
 
         own_transform.position = ref_transform.position + displacement;
+        own_transform.rotation = ref_transform.rotation * angular_displacement;
     }
 }
