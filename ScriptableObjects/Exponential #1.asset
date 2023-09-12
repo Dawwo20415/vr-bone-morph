@@ -15,4 +15,4 @@ MonoBehaviour:
   target_distance: 0.1
   slope: 10
   path: 2
-  direction: {x: -1, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 1}
