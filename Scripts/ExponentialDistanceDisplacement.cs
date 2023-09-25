@@ -15,6 +15,7 @@ public class ExponentialDistanceDisplacement : PointDisplacement
     private Vector3 direction;
 
     private Transform origin;
+    override public bool NeedSetup { get { return true; } }
 
     override public void setup(GameObject obj) {
         origin = obj.transform;

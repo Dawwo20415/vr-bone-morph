@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PointDisplacement : ScriptableObject
 {
+    virtual public bool NeedSetup { get { return false; } }
     virtual public void setup(GameObject obj) {}
     virtual public Vector3 getDisplacement(Vector3 ref_position) { return Vector3.zero;}
     virtual public Quaternion getAngularDisplacement(Quaternion ref_rotation) { return Quaternion.identity; }
