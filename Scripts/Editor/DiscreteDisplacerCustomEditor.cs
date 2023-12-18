@@ -3,14 +3,14 @@ using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 
-[CustomEditor(typeof(Displacer))]
-public class DisplacerCustomEditor : Editor
+[CustomEditor(typeof(DiscreteDisplacer), true)]
+public class DiscreteDisplacerCustomEditor : Editor
 {
     private bool componentHealthStatus = false;
     private string errorString = "Placeholder Error String";
     public override void OnInspectorGUI()
     {
-        Displacer displacer = (Displacer)target;
+        DiscreteDisplacer displacer = (DiscreteDisplacer)target;
         EditorGUI.BeginChangeCheck();
 
         if (componentHealthStatus)
@@ -25,7 +25,8 @@ public class DisplacerCustomEditor : Editor
             {
                 componentHealthStatus = true;
                 errorString = "\"operations\" array and \"displacement_references\" array have different sizes, please add empty elements or delete from \"displacement_references\" accordingly.";
-            } else
+            }
+            else
             {
                 if (indexes.Count > 1)
                 {
@@ -38,14 +39,15 @@ public class DisplacerCustomEditor : Editor
                             errorString += ",";
                     }
                     errorString += " require a corresponding reference GameObject, but it was not found.";
-                } else
+                }
+                else
                 {
                     componentHealthStatus = false;
-                }     
+                }
             }
         }
 
-        
+
     }
 
     public void drawWarningBox(string errorString)
